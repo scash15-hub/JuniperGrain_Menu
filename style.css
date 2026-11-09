@@ -1,4 +1,5 @@
-/* Juniper & Grain brand colors, from the client brief */
+
+/* Juniper & Grain brand colors */
 :root {
   --sage: #3f5a46;
   --terracotta: #c8693f;
@@ -6,4 +7,247 @@
   --espresso: #2b211c;
 }
 
-/* Your styles go below. */
+/* General page styling */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--sage);
+  color: var(--espresso);
+  font-family: Georgia, serif;
+}
+
+/* Header */
+header {
+  background-color: var(--cream);
+  color: var(--espresso);
+  text-align: center;
+  padding: 30px 20px;
+  border-bottom: 5px solid var(--terracotta);
+}
+
+.logo {
+  display: block;
+  width: 85px;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin: 5px 0;
+  letter-spacing: 2px;
+}
+
+header h1::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 3px;
+  background-color: var(--terracotta);
+  margin: 12px auto 0;
+}
+
+/* Main content */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 25px;
+}
+
+/* Navigation buttons */
+#filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+#filters button {
+  background-color: var(--espresso);
+  color: var(--cream);
+  border: 1px solid var(--espresso);
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px rgba(43, 33, 28, 0.12);
+}
+
+#filters button:hover {
+  background-color: var(--sage);
+  color: white;
+  border-color: var(--sage);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(43, 33, 28, 0.15);
+}
+
+#filters button.active {
+  background-color: var(--terracotta);
+  color: white;
+  border-color: var(--terracotta);
+  box-shadow: 0 4px 10px rgba(200, 105, 63, 0.25);
+}
+
+/* Status message */
+#status {
+  text-align: center;
+  color: var(--cream);
+  font-size: 17px;
+}
+
+/* Category headings */
+#menu h2 {
+  color: var(--cream);
+  font-size: 30px;
+  border-bottom: 2px solid var(--terracotta);
+  padding-bottom: 10px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Menu grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Menu cards */
+.card {
+  background-color: var(--cream);
+  border: 1px solid var(--terracotta);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(43, 33, 28, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(43, 33, 28, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.04);
+}
+
+/* Card information */
+.card-body {
+  padding: 20px;
+}
+
+.card h3 {
+  color: var(--sage);
+  font-size: 21px;
+  margin-top: 0;
+}
+
+.card p {
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Popular badge */
+.badge {
+  background-color: var(--terracotta);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  background-color: #e5e9df;
+  color: var(--sage);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.tags li:hover {
+  background-color: #d4ddcf;
+}
+
+/* Price */
+.price {
+  color: var(--sage);
+  font-size: 20px !important;
+  font-weight: bold;
+  border-top: 1px solid #d8cbb9;
+  padding-top: 12px;
+}
+
+/* Sold out items */
+.card.is-sold {
+  opacity: 0.65;
+}
+
+.sold {
+  color: #b33b2e;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--terracotta);
+  color: white;
+}
+
+/* Tablet layout */
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone layout */
+@media (max-width: 550px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 32px;
+  }
+
+  #filters button {
+    padding: 9px 15px;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
