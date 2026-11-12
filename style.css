@@ -1,10 +1,12 @@
 
-/* Juniper & Grain brand colors */
+/* Juniper & Grain seasonal colors */
 :root {
-  --sage: #3f5a46;
-  --terracotta: #c8693f;
-  --cream: #f7f2e9;
-  --espresso: #2b211c;
+  --sage: #304d3d;
+  --terracotta: #a84b45;
+  --cream: #f8f1e6;
+  --espresso: #302820;
+  --gold: #c3a36b;
+  --white: #fffdf9;
 }
 
 /* General page styling */
@@ -18,18 +20,18 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--sage);
+  background-color: var(--cream);
   color: var(--espresso);
   font-family: Georgia, serif;
 }
 
 /* Header */
 header {
-  background-color: var(--cream);
-  color: var(--espresso);
+  background: linear-gradient(135deg, #304d3d, #20392d);
+  color: var(--cream);
   text-align: center;
-  padding: 30px 20px;
-  border-bottom: 5px solid var(--terracotta);
+  padding: 35px 20px;
+  border-bottom: 5px solid var(--gold);
 }
 
 .logo {
@@ -37,20 +39,25 @@ header {
   width: 85px;
   height: auto;
   margin: 0 auto 10px;
+  transition: transform 0.4s ease;
+}
+
+.logo:hover {
+  transform: rotate(-8deg) scale(1.1);
 }
 
 header h1 {
   font-size: 42px;
   margin: 5px 0;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 header h1::after {
   content: "";
   display: block;
-  width: 65px;
+  width: 75px;
   height: 3px;
-  background-color: var(--terracotta);
+  background-color: var(--gold);
   margin: 12px auto 0;
 }
 
@@ -71,45 +78,44 @@ main {
 }
 
 #filters button {
-  background-color: var(--espresso);
+  background-color: var(--sage);
   color: var(--cream);
-  border: 1px solid var(--espresso);
-  padding: 10px 22px;
+  border: 2px solid var(--sage);
+  padding: 11px 23px;
   border-radius: 25px;
   font-size: 15px;
   font-family: Georgia, serif;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 3px 6px rgba(43, 33, 28, 0.12);
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 7px rgba(48, 40, 32, 0.1);
 }
 
 #filters button:hover {
-  background-color: var(--sage);
-  color: white;
-  border-color: var(--sage);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(43, 33, 28, 0.15);
+  background-color: var(--terracotta);
+  border-color: var(--terracotta);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(48, 40, 32, 0.2);
 }
 
 #filters button.active {
   background-color: var(--terracotta);
   color: white;
-  border-color: var(--terracotta);
-  box-shadow: 0 4px 10px rgba(200, 105, 63, 0.25);
+  border-color: var(--gold);
+  box-shadow: 0 4px 10px rgba(168, 75, 69, 0.25);
 }
 
 /* Status message */
 #status {
   text-align: center;
-  color: var(--cream);
+  color: var(--sage);
   font-size: 17px;
 }
 
 /* Category headings */
 #menu h2 {
-  color: var(--cream);
+  color: var(--sage);
   font-size: 30px;
-  border-bottom: 2px solid var(--terracotta);
+  border-bottom: 2px solid var(--gold);
   padding-bottom: 10px;
   margin-top: 40px;
   display: flex;
@@ -126,28 +132,28 @@ main {
 
 /* Menu cards */
 .card {
-  background-color: var(--cream);
-  border: 1px solid var(--terracotta);
-  border-radius: 12px;
+  background-color: var(--white);
+  border: 1px solid #e5d8c5;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(43, 33, 28, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(48, 40, 32, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 22px rgba(43, 33, 28, 0.18);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(48, 40, 32, 0.18);
 }
 
 .card img {
   width: 100%;
   height: 210px;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .card:hover img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 /* Card information */
@@ -187,24 +193,26 @@ main {
 }
 
 .tags li {
-  background-color: #e5e9df;
+  background-color: #e8eee8;
   color: var(--sage);
   padding: 5px 10px;
   border-radius: 15px;
   font-size: 12px;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .tags li:hover {
-  background-color: #d4ddcf;
+  background-color: var(--gold);
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Price */
 .price {
-  color: var(--sage);
+  color: var(--terracotta);
   font-size: 20px !important;
   font-weight: bold;
-  border-top: 1px solid #d8cbb9;
+  border-top: 1px solid #eadfce;
   padding-top: 12px;
 }
 
@@ -214,7 +222,7 @@ main {
 }
 
 .sold {
-  color: #b33b2e;
+  color: var(--terracotta);
   font-weight: bold;
   text-transform: uppercase;
   font-size: 13px;
