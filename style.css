@@ -1,12 +1,24 @@
 
-/* Juniper & Grain seasonal colors */
+/* Juniper & Grain holiday colors */
 :root {
-  --sage: #304d3d;
-  --terracotta: #a84b45;
-  --cream: #f8f1e6;
-  --espresso: #302820;
-  --gold: #c3a36b;
-  --white: #fffdf9;
+  --sage: #183b68;
+  --terracotta: #2878b9;
+  --cream: #f2f7fc;
+  --espresso: #172b45;
+  --gold: #c5a65a;
+  --white: #ffffff;
+  --silver: #d7e2ed;
+}
+
+/* Christmas theme colors */
+body[data-theme="christmas"] {
+  --sage: #244536;
+  --terracotta: #a8323e;
+  --cream: #fff8ed;
+  --espresso: #30251f;
+  --gold: #c6a15b;
+  --white: #ffffff;
+  --silver: #e5d8c5;
 }
 
 /* General page styling */
@@ -23,15 +35,17 @@ body {
   background-color: var(--cream);
   color: var(--espresso);
   font-family: Georgia, serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #304d3d, #20392d);
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--sage), var(--espresso));
+  color: white;
   text-align: center;
   padding: 35px 20px;
   border-bottom: 5px solid var(--gold);
+  transition: background 0.4s ease;
 }
 
 .logo {
@@ -61,6 +75,43 @@ header h1::after {
   margin: 12px auto 0;
 }
 
+/* Holiday theme buttons */
+.theme-switcher {
+  margin-top: 22px;
+}
+
+.theme-switcher p {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.theme-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid var(--gold);
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 25px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-button:hover {
+  background-color: var(--gold);
+  color: var(--espresso);
+  transform: translateY(-3px);
+}
+
+.theme-button.active {
+  background-color: var(--gold);
+  color: var(--espresso);
+  border-color: var(--gold);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
 /* Main content */
 main {
   max-width: 1200px;
@@ -79,7 +130,7 @@ main {
 
 #filters button {
   background-color: var(--sage);
-  color: var(--cream);
+  color: white;
   border: 2px solid var(--sage);
   padding: 11px 23px;
   border-radius: 25px;
@@ -87,21 +138,20 @@ main {
   font-family: Georgia, serif;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 7px rgba(48, 40, 32, 0.1);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
 
 #filters button:hover {
   background-color: var(--terracotta);
-  border-color: var(--terracotta);
+  border-color: var(--gold);
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(48, 40, 32, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 #filters button.active {
   background-color: var(--terracotta);
   color: white;
   border-color: var(--gold);
-  box-shadow: 0 4px 10px rgba(168, 75, 69, 0.25);
 }
 
 /* Status message */
@@ -133,16 +183,17 @@ main {
 /* Menu cards */
 .card {
   background-color: var(--white);
-  border: 1px solid #e5d8c5;
+  border: 1px solid var(--silver);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(48, 40, 32, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(48, 40, 32, 0.18);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+  border-color: var(--gold);
 }
 
 .card img {
@@ -193,7 +244,7 @@ main {
 }
 
 .tags li {
-  background-color: #e8eee8;
+  background-color: var(--cream);
   color: var(--sage);
   padding: 5px 10px;
   border-radius: 15px;
@@ -212,7 +263,7 @@ main {
   color: var(--terracotta);
   font-size: 20px !important;
   font-weight: bold;
-  border-top: 1px solid #eadfce;
+  border-top: 1px solid var(--silver);
   padding-top: 12px;
 }
 
@@ -253,6 +304,10 @@ main {
 
   #filters button {
     padding: 9px 15px;
+  }
+
+  .theme-button {
+    padding: 9px 14px;
   }
 
   .card:hover {

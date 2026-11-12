@@ -141,5 +141,31 @@ function buildFilters () {
   })
 }
 
+
+// Holiday theme switcher
+const themeButtons = document.querySelectorAll(".theme-button");
+
+function changeTheme(theme) {
+  document.body.setAttribute("data-theme", theme);
+
+  themeButtons.forEach(button => {
+    if (button.dataset.theme === theme) {
+      button.classList.add("active");
+    } else {
+      button.classList.remove("active");
+    }
+  });
+}
+
+themeButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    changeTheme(this.dataset.theme);
+  });
+});
+
+// Start with Hanukkah
+changeTheme("hanukkah");
+
+
 // 5. Call startMenu() when the page opens.
 startMenu()
